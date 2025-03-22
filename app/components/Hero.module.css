@@ -1,0 +1,16 @@
+.heroImage {
+  background-image: url("/man.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-position: right center;
+}
+.heroImage2 {
+  background-image: url("/woman.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-position: left center;
+}
