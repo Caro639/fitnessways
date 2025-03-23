@@ -19,7 +19,7 @@ const Navbar = () => {
         width={60}
         height={46}
       />
-      <Button colorScheme="purple">
+      <Button colorPalette={"purple"}>
         Connexion
       </Button>
     </Flex>

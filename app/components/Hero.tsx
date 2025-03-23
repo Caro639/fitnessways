@@ -33,7 +33,7 @@ const Hero = () => {
         <Link href="#searchBar">
           <Button
             mt="1rem"
-            colorScheme={"purple"}
+            colorPalette={"purple"}
           >
             Rechercher
           </Button>
