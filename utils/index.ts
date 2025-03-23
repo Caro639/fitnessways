@@ -7,7 +7,7 @@ export async function fetchExercises(
 
   const headers: HeadersInit = {
     "x-rapidapi-key":
-      "a56b675d37mshef079dfcc5d1e00p15e8e3jsn764b55c05141",
+      "cb7ecfad9dmsh52bf2aec4e29830p13368fjsn9ebd8bd53484",
     "x-rapidapi-host":
       "exercises-by-api-ninjas.p.rapidapi.com",
   };

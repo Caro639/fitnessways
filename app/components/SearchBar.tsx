@@ -105,7 +105,7 @@ const SearchBar = () => {
             {difficulties.map((difficulty) => (
               <option
                 value={difficulty}
-                key={difficulty}
+                // key={difficulty}
               >
                 {formatDifficulty(difficulty)}
               </option>
@@ -126,7 +126,7 @@ const SearchBar = () => {
           >
             <option value="">None</option>
             {muscles.map((muscle) => (
-              <option value={muscle} key={muscle}>
+              <option value={muscle}>
                 {formatMuscleName(muscle)}
               </option>
             ))}
