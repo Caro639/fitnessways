@@ -77,7 +77,7 @@ const SearchBar = () => {
 
   return (
     <div
-      className={styles.searchbar}
+      className={styles.searchBar}
       id="searchbar"
     >
       <Flex

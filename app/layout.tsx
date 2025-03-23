@@ -9,7 +9,11 @@ export default function RootLayout(props: {
   const { children } = props;
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <meta
+        name="format-detection"
+        content="telephone=no, date=no, email=no, address=no"
+      />
       <body>
         <Provider>{children}</Provider>
       </body>
