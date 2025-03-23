@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import React from "react";
-import styles from "./SearchBar.module.css";
 import { Flex, Button } from "@chakra-ui/react";
 import { NativeSelect } from "@chakra-ui/react";
 
@@ -77,7 +76,10 @@ const SearchBar = () => {
 
   return (
     <div
-      className={styles.searchBar}
+      style={{
+        backgroundColor: "#f2f2f2",
+        padding: "1rem 2rem",
+      }}
       id="searchbar"
     >
       <Flex
