@@ -49,7 +49,7 @@ const SearchBar = () => {
         "Please select a difficulty or muscle"
       );
     }
-    alert(difficulty + muscle);
+    // alert(difficulty + muscle);
     updateSearchParams(difficulty, muscle);
   };
   const updateSearchParams = (
