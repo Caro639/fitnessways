@@ -14,10 +14,6 @@ import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function Home() {
-  // const allExercises = await fetchExercises({
-  //   difficulty: searchParams.difficulty || "",
-  //   muscle: searchParams.muscle || "",
-  // });
   const searchParams = useSearchParams();
   const [allExercises, setAllExercises] =
     useState([]);
@@ -44,12 +40,6 @@ export default function Home() {
   useEffect(() => {
     fetchData();
   }, [searchParams]);
-
-  // console.log(allExercises);
-  // const isDataEmpty =
-  //   !Array.isArray(allExercises) ||
-  //   allExercises.length < 1 ||
-  //   !allExercises;
 
   return (
     <>

@@ -6,7 +6,6 @@ import {
   CardBody,
   Text,
   Alert,
-  // AlertIcon,
   Flex,
 } from "@chakra-ui/react";
 
@@ -56,18 +55,12 @@ const ExercisesList = ({
   return (
     <>
       {!isDataEmpty ? (
-        // <Grid
-        //   templateColumns={[
-        //     "repeat(1, 1fr",
-        //     "repeat(1, 1fr)",
-        //     "repeat(1, 1fr)",
-        //     "repeat(3, 1fr)",
-        //   ]}
-        //   gap="6"
-        //   p="2rem"
-        // >
         <Grid
-          templateColumns="repeat(3, 1fr)"
+          templateColumns={{
+            base: "repeat(1, 1fr)", // 1 colonne sur les petits écrans
+            sm: "repeat(2, 1fr)", // 2 colonnes sur les écrans moyens
+            md: "repeat(3, 1fr)", // 3 colonnes sur les écrans plus grands
+          }}
           gap="6"
           p="2rem"
         >
@@ -119,7 +112,6 @@ const ExercisesList = ({
             variant="solid"
           >
             <Alert.Indicator />
-            {/* <AlertIcon /> */}
             <Alert.Title>
               Oops, no result.
             </Alert.Title>
