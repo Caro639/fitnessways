@@ -104,14 +104,17 @@ const SearchBar = () => {
             value={difficulty}
           >
             <option value="">None</option>
-            {difficulties.map((difficulty) => (
-              <option
-                value={difficulty}
-                key={difficulty?.toString()}
-              >
-                {formatDifficulty(difficulty)}
-              </option>
-            ))}
+            {difficulties.map(
+              (difficulty, index) => (
+                <option
+                  value={difficulty}
+                  key={index}
+                  id={`difficulty-${index}`}
+                >
+                  {formatDifficulty(difficulty)}
+                </option>
+              )
+            )}
           </NativeSelect.Field>
           <NativeSelect.Indicator />
         </NativeSelect.Root>
@@ -127,10 +130,11 @@ const SearchBar = () => {
             value={muscle}
           >
             <option value="">None</option>
-            {muscles.map((muscle) => (
+            {muscles.map((muscle, index) => (
               <option
                 value={muscle}
-                key={muscle?.toString()}
+                key={index}
+                id={`muscle-${index}`}
               >
                 {formatMuscleName(muscle)}
               </option>

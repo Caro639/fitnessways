@@ -65,8 +65,11 @@ const ExercisesList = ({
           p="2rem"
         >
           {allExercises.map(
-            (exercise: ExerciseProps) => (
-              <Card.Root>
+            (exercise: ExerciseProps, index) => (
+              <Card.Root
+                key={index}
+                id={`exercise-${index}`}
+              >
                 <CardBody>
                   <Flex
                     alignItems="center"
