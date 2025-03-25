@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import {
   Grid,
   Card,
@@ -54,73 +54,96 @@ const ExercisesList = ({
   };
   return (
     <>
-      {!isDataEmpty ? (
-        <Grid
-          templateColumns={{
-            base: "repeat(1, 1fr)", // 1 colonne sur les petits écrans
-            sm: "repeat(2, 1fr)", // 2 colonnes sur les écrans moyens
-            md: "repeat(3, 1fr)", // 3 colonnes sur les écrans plus grands
-          }}
-          gap="6"
-          p="2rem"
-        >
-          {allExercises.map(
-            (exercise: ExerciseProps, index) => (
-              <Card.Root
-                key={index}
-                id={`exercise-${index}`}
-              >
-                <CardBody>
-                  <Flex
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
-                    <Text as="b">
-                      {exercise.name}
-                    </Text>
-                    <Flex>
-                      {renderDifficulty(
-                        exercise.difficulty
-                      )}
-                    </Flex>
-                  </Flex>
-                  <Flex mt=".5rem">
-                    <Text as="b">Type</Text>
-                    <Text>
-                      &nbsp;: {exercise.type}
-                    </Text>
-                  </Flex>
-                  <Flex mt=".5rem">
-                    <Text as="b">Equipment</Text>
-                    <Text>
-                      &nbsp;: {exercise.equipment}
-                    </Text>
-                  </Flex>
-                  <Text mt=".5rem">
-                    <Text as="b">
-                      Instructions
-                    </Text>{" "}
-                    :{exercise.instructions}
-                  </Text>
-                </CardBody>
-              </Card.Root>
-            )
-          )}
-        </Grid>
-      ) : (
-        <Flex m="2rem">
-          <Alert.Root
-            status="warning"
-            title="Oops, no result."
-            variant="solid"
+      <Suspense
+        fallback={
+          <Flex m="2rem">
+            <Alert.Root
+              status="warning"
+              title="Oops, no result."
+              variant="solid"
+            >
+              <Alert.Indicator />
+              <Alert.Title>
+                Oops, no result.
+              </Alert.Title>
+            </Alert.Root>
+          </Flex>
+        }
+      >
+        {!isDataEmpty ? (
+          <Grid
+            templateColumns={{
+              base: "repeat(1, 1fr)", // 1 colonne sur les petits écrans
+              sm: "repeat(2, 1fr)", // 2 colonnes sur les écrans moyens
+              md: "repeat(3, 1fr)", // 3 colonnes sur les écrans plus grands
+            }}
+            gap="6"
+            p="2rem"
           >
-            <Alert.Indicator />
-            <Alert.Title>
-              Oops, no result.
-            </Alert.Title>
-          </Alert.Root>
-        </Flex>
-      )}
+            {allExercises.map(
+              (
+                exercise: ExerciseProps,
+                index
+              ) => (
+                <Card.Root
+                  key={index}
+                  id={`exercise-${index}`}
+                >
+                  <CardBody>
+                    <Flex
+                      alignItems="center"
+                      justifyContent="space-between"
+                    >
+                      <Text as="b">
+                        {exercise.name}
+                      </Text>
+                      <Flex>
+                        {renderDifficulty(
+                          exercise.difficulty
+                        )}
+                      </Flex>
+                    </Flex>
+                    <Flex mt=".5rem">
+                      <Text as="b">Type</Text>
+                      <Text>
+                        &nbsp;: {exercise.type}
+                      </Text>
+                    </Flex>
+                    <Flex mt=".5rem">
+                      <Text as="b">
+                        Equipment
+                      </Text>
+                      <Text>
+                        &nbsp;:{" "}
+                        {exercise.equipment}
+                      </Text>
+                    </Flex>
+                    <Text mt=".5rem">
+                      <Text as="b">
+                        Instructions
+                      </Text>{" "}
+                      :{exercise.instructions}
+                    </Text>
+                  </CardBody>
+                </Card.Root>
+              )
+            )}
+          </Grid>
+        ) : (
+          <Flex m="2rem">
+            <Alert.Root
+              status="warning"
+              title="Oops, no result."
+              variant="solid"
+            >
+              <Alert.Indicator />
+              <Alert.Title>
+                Oops, no result.
+              </Alert.Title>
+            </Alert.Root>
+          </Flex>
+        )}
+      </Suspense>
     </>
   );
 };
